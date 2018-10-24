@@ -1,0 +1,153 @@
+@keyframes fade {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@font-face {
+	font-family: "IBM Plex Mono"
+	src: url(assets/fonts/ibm-plex-mono.woff), url(assets/fonts/ibm-plex-mono.woff2)
+}
+
+@font-face {
+	font-family: "Young Serif"
+	src: url(assets/fonts/youngserif.woff), url(assets/fonts/youngserif.woff2)
+}
+
+body {
+	font-family: "IBM Plex Mono";
+	font-size: 16px;
+	line-height: 1.6;
+	
+	background-color: #fff;
+	color: #2a2a2a;
+	overflow-x: hidden;
+}
+
+/* Use this if want menu on right hand side/*
+body a.toggle-nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	margin: 40px;
+}
+*/
+
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	left: -240px; /* use this to slide menu over the main section */
+/*	right: 0; */ /* use this if want menu on right hand side */
+	width: 240px;
+	height: 100vh;
+	background-color: #00b98d;
+	color: #fff;
+	
+	font-family: "Young Serif";
+	font-size: 24px;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	transition: left 0.5s; /* use this to slide menu over the main section */
+	z-index: 2; /* use this to slide menu over the main section */
+}
+
+nav a {
+	
+	color: #ffffff;
+	text-decoration: none;
+	margin: 5px 50px;
+}
+
+
+nav.open {  /* use this to slide menu over the main section */
+	left: 0;
+}
+
+
+main {
+	position: relative;
+	z-index: 1; /* default is 0 and nav is further up in html so sits on top of main unless we set this to 1*/
+	background-color: aliceblue;
+	min-height: 100vh;
+	transition: transform 0.5s;
+/*	padding: 20px 30px;*/
+}
+
+main.open {
+	transform: translate(240px, 0);
+/*	transform: translate(-240px, 0);*/ /* Use this if want menu on right hand side */
+}
+
+a.toggle-nav {
+	position: fixed;
+	top: 0;
+	left:0;
+	padding: 30px;
+	text-decoration: none;
+	color: #2a2a2a;
+}
+
+a.toggle-nav img {
+	margin: 0 10px 0 0;
+	vertical-align: middle;
+}
+
+section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100ch;
+}
+
+section div {
+	width: 350px;
+}
+
+section div.content {
+	margin: 0 0 0 60px;
+}
+
+h1 {
+	font-family: "Young Serif";
+	font-size: 48px;
+	line-height: 1.2;
+}
+
+p {
+	margin: 20px 0;
+}
+
+a.button {
+	display: inline-block;
+	background-color: #00b98d;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 10px 15px;
+	border-radius: 3px;
+	box-shadow: 0 5px 25px 0 #7295B2;
+	-webkit-transition: 0.5s ease-in-out; /* include transition here also so that box shrinks with transition when you move mouse off of it */
+}
+
+a.button:hover {
+	transform: scale(1.15);
+	-webkit-transition: 0.5s ease-in-out;
+}
+
+div.slides {
+	height: 475px; /* set this to be the same height as image */
+	position: relative;
+}
+
+div.slides img {
+	position: absolute;
+	top: 0;
+	left:0;
+}
+
+div.slides img:first-child {
+	z-index: 1;
+}
